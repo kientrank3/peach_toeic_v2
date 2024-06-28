@@ -78,16 +78,17 @@ export default function Loading({ time = 9999 }) {
 		<section ref={section} className="fixed inset-0 z-[999] bg-white">
 			{/* Software name */}
 			<header className="mx-4 my-10 text-center">
-				<h1 className="mb-2 text-3xl font-bold text-red-400 font-rowdies">Peach <span className="font-bold text-primary font-rowdies">TOEIC</span></h1>
-				<h2 className="text-20">
-					Chinh phục 600 từ vựng TOEIC
-				</h2>
+				<h1 className="mb-2 text-3xl font-bold text-red-400 font-rowdies">
+					Peach{" "}
+					<span className="font-bold text-primary font-rowdies">TOEIC</span>
+				</h1>
+				<h2 className="text-20">Chinh phục 600 từ vựng TOEIC</h2>
 			</header>
 
 			{/* Hero */}
 			<div className="w-[80%] mx-auto">
 				<img
-					src={`${process.env.PUBLIC_URL}/assets/hero_img/hero-${heroRandom}.png`}
+					src={`/assets/hero_img/hero-${heroRandom}.png`}
 					className="mx-auto h-[300px] object-contain"
 					alt=""
 				/>

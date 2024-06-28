@@ -27,7 +27,7 @@ export function getPath(item, type = "img") {
 		default:
 			extension = "jpg";
 	}
-	return `${process.env.PUBLIC_URL}/assets/${type}/${transformName(item?.topic)}/${transformName(
+	return `/assets/${type}/${transformName(item?.topic)}/${transformName(
 		item.name
 	)}.${extension}`;
 }

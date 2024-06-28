@@ -121,7 +121,7 @@ function ContentCard({ item }) {
 			>
 				<img
 					onError={({ currentTarget }) =>
-						(currentTarget.src = `${process.env.PUBLIC_URL}/assets/error_img.jpg`)
+						(currentTarget.src = `/assets/error_img.jpg`)
 					}
 					src={getPath(item)}
 					alt={item.name}

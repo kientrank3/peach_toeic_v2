@@ -4,21 +4,21 @@ import useTextToSpeech from "../../hooks/useTextToSpeech";
 
 export default React.memo(function QuestionCard({ item }) {
 	// This ref to the audio tag
-	const [voice, setVoice] = useState (null);
-	const { voices, speak } = useTextToSpeech () ;
-	const [text, setText] = useState (item.name);
-	
+	const [voice, setVoice] = useState(null);
+	const { voices, speak } = useTextToSpeech();
+	const [text, setText] = useState(item.name);
+
 	const sound = useRef();
 
 	// Handle play sounds. This will pause and load new sounds then play them
 	useEffect(() => {
-		setVoice (voices[18]);
-		}, [voices]);
-	useEffect(()=>{
+		setVoice(voices[18]);
+	}, [voices]);
+	useEffect(() => {
 		setText(item.name);
-	},[item]);
+	}, [item]);
 	const playSound = () => {
-		speak({text}, voice);
+		speak({ text }, voice);
 	};
 
 	// This side effect will automatically play sounds when mounted after .3 seconds.
@@ -28,7 +28,7 @@ export default React.memo(function QuestionCard({ item }) {
 		}, 300);
 
 		return () => clearTimeout(pronouncePlay);
-	}, );
+	});
 
 	return (
 		<div className="rounded-lg shadow bg-s-white">
@@ -43,7 +43,7 @@ export default React.memo(function QuestionCard({ item }) {
 			<div className="flex flex-col items-start gap-2 p-2">
 				<img
 					onError={({ currentTarget }) =>
-						(currentTarget.src = `${process.env.PUBLIC_URL}/assets/error_img.jpg`)
+						(currentTarget.src = `/assets/error_img.jpg`)
 					}
 					src={getPath(item)}
 					alt={item.name}

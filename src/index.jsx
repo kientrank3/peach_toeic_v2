@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./main.css";
-import App from "./App";
+import App from "./App.jsx";
 import Topic from "./context/TopicContext";
 import Vocabulary from "./context/VocabularyContext";
 import reportWebVitals from "./reportWebVitals";

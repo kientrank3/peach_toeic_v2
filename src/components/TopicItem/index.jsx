@@ -12,12 +12,10 @@ import {
 } from "../../assets/utilities/transform_text";
 
 export default React.memo(
-	React.forwardRef(function TopicItem({
-		topic,
-		isPrevious,
-		isCompleted,
-		handleClick,
-	}, ref) {
+	React.forwardRef(function TopicItem(
+		{ topic, isPrevious, isCompleted, handleClick },
+		ref
+	) {
 		return (
 			<div
 				className="relative w-[160px] flex flex-col items-center rounded-lg select-none"
@@ -47,13 +45,11 @@ export default React.memo(
 				<div className="relative w-full h-[105px] overflow-hidden rounded-md rounded-b-none border border-b-0">
 					<img
 						onError={({ currentTarget }) =>
-							(currentTarget.src = `${process.env.PUBLIC_URL}/assets/error_img.jpg`)
+							(currentTarget.src = `/assets/error_img.jpg`)
 						}
-						src={`${
-							process.env.PUBLIC_URL
-						}/assets/img/${transformName(
+						src={`/assets/img/${transformName(topic.name)}/${transformName(
 							topic.name
-						)}/${transformName(topic.name)}.jpg`}
+						)}.jpg`}
 						alt={topic.name}
 						className="w-full h-[105px] object-cover object-center"
 					/>
