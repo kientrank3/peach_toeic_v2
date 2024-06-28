@@ -38,6 +38,11 @@ const routes = [
 		layout: null,
 	},
 	{
+		path: "/learn/:topicPath",
+		component: Learn,
+		layout: null,
+	},
+	{
 		path: "/learn",
 		component: Learn,
 		layout: null,

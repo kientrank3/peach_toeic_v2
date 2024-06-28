@@ -4,21 +4,17 @@ import {
 	createContext,
 	Fragment,
 	useCallback,
-	useContext,
 	useEffect,
 	useState,
 } from "react";
 
 // Routes and context
 import routes from "./routes";
-import { TopicContext } from "./context/TopicContext";
 // Components
 import DefaultLayout from "./components/layout/DefaultLayout";
-import Learn from "./pages/Learn";
 import Loading from "./components/Loading";
 import UserForm from "./components/UserForm/index";
 // Utilities functions
-import { transformName } from "./assets/utilities/transform_text";
 // Custom hooks
 import useLocalData from "./hooks/useLocalData";
 import {
@@ -28,11 +24,9 @@ import {
 import NotificationBar from "./components/NotificationBar";
 
 export const NotificationContext = createContext();
-	
 
 function App() {
 	// Get topic list context
-	const topicList = useContext(TopicContext);
 	const [getLocalData, setLocalData] = useLocalData();
 	const localData = getLocalData();
 
@@ -86,10 +80,7 @@ function App() {
 					/>
 				)}
 				<div className="App tap-highlight-none bg-white lg:relative min-h-[100vh] lg:max-w-sm lg:mx-auto lg:border lg:overflow-y-scroll lg:shadow-lg">
-					<NotificationBar
-						queue={queue}
-						popFromQueue={popFromQueue}
-					/>
+					<NotificationBar queue={queue} popFromQueue={popFromQueue} />
 					<Routes>
 						{/* Main route */}
 						{routes.map((route, index) => {
@@ -114,15 +105,6 @@ function App() {
 								></Route>
 							);
 						})}
-
-						{/* Learn route */}
-						{topicList.map((topic) => (
-							<Route
-								key={topic.id}
-								path={transformName(topic.name)}
-								element={<Learn topic={topic} />}
-							></Route>
-						))}
 					</Routes>
 				</div>
 			</NotificationContext.Provider>

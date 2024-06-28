@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useCallback, useRef } from "react";
 import useSound from "use-sound";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 
 // Custom hooks
@@ -38,8 +38,11 @@ import {
 	BsFillBookmarkDashFill,
 } from "react-icons/bs";
 import { NotificationContext } from "../../App";
+import { findTopicByName } from "./../../context/TopicContext";
 
-export default function Learn({ topic }) {
+export default function Learn() {
+	const { topicPath } = useParams();
+	const topic = findTopicByName(topicPath);
 	// Get vocabulary context
 	const allVoca = useContext(VocabularyContext);
 
@@ -50,8 +53,7 @@ export default function Learn({ topic }) {
 		const learnedList = getLocalLearned();
 
 		// If first time learning, check the first element
-		if (!learnedList.includes(topic.id * 12))
-			learnedList.push(topic.id * 12);
+		if (!learnedList.includes(topic.id * 12)) learnedList.push(topic.id * 12);
 
 		return learnedList;
 	});
@@ -285,14 +287,18 @@ export default function Learn({ topic }) {
 					/* ADD TO LIB BUTTON */
 					<button
 						className="contact-library-button"
-						onClick={() => {addToLibraryList(currentItem.id); addNotification("success", `Added "${currentItem.name}" to the Library`)}}
+						onClick={() => {
+							addToLibraryList(currentItem.id);
+							addNotification(
+								"success",
+								`Added "${currentItem.name}" to the Library`
+							);
+						}}
 					>
 						<span className="text-xl text-green-400">
 							<BsFillBookmarkPlusFill />
 						</span>
-						<span className="text-center text-12">
-							Add to Library
-						</span>
+						<span className="text-center text-12">Add to Library</span>
 					</button>
 				) : (
 					/* REMOVE TO LIB BUTTON */
@@ -301,15 +307,16 @@ export default function Learn({ topic }) {
 						onClick={() => {
 							tuntunSound();
 							removeFromLibraryList(currentItem.id);
-							addNotification("info", `Removed "${currentItem.name}" from the Library`)
+							addNotification(
+								"info",
+								`Removed "${currentItem.name}" from the Library`
+							);
 						}}
 					>
 						<span className="text-xl text-red-400">
 							<BsFillBookmarkDashFill />
 						</span>
-						<span className="text-center text-12">
-							Remove from Library
-						</span>
+						<span className="text-center text-12">Remove from Library</span>
 					</button>
 				)}
 				<button

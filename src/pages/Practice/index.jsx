@@ -141,24 +141,18 @@ export default function Practice() {
 												className="w-5 h-5 mr-1 accent-black lg:cursor-pointer"
 												id={`${item.name}_${option.id}`}
 												value={option.value}
-												checked={
-													option.value ===
-													setting?.[item.name]
-												}
+												checked={option.value === setting?.[item.name]}
 												onChange={() => {
 													setSetting((prev) => {
 														return {
 															...prev,
-															[item.name]:
-																option.value,
+															[item.name]: option.value,
 														};
 													});
 												}}
 												onClick={popSound}
 											/>
-											<label
-												htmlFor={`${item.name}_${option.id}`}
-											>
+											<label htmlFor={`${item.name}_${option.id}`}>
 												{option.name}
 											</label>
 										</div>

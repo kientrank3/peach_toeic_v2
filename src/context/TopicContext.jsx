@@ -1,5 +1,23 @@
 import React from "react";
 import { createContext } from "react";
+import { transformName } from "../assets/utilities/transform_text";
+
+export const TopicContext = createContext();
+export const findTopic = (id) => {
+	return topicData.find((topic) => topic.id === id);
+};
+
+export const findTopicByName = (name) => {
+	return topicData.find(
+		(topic) => transformName(topic.name) === transformName(name)
+	);
+};
+
+export default function Topic({ children }) {
+	return (
+		<TopicContext.Provider value={topicData}>{children}</TopicContext.Provider>
+	);
+}
 
 const topicData = [
 	{
@@ -303,13 +321,3 @@ const topicData = [
 		meaning: "Tiệm thuốc",
 	},
 ];
-
-export const TopicContext = createContext();
-
-export default function Topic({ children }) {
-	return (
-		<TopicContext.Provider value={topicData}>
-			{children}
-		</TopicContext.Provider>
-	);
-}

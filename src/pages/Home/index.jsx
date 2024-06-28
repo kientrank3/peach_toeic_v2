@@ -117,16 +117,12 @@ export default function Home() {
 							" will-change-scroll"
 						}
 					>
-						<Link to={transformName(item.name)}>
+						<Link to={`/learn/${transformName(item.name)}`}>
 							<TopicItem
 								topic={item}
 								isCompleted={item.complete}
 								isPrevious={item.id === previousView}
-								ref={
-									item.id === previousView
-										? previousItemRef
-										: null
-								}
+								ref={item.id === previousView ? previousItemRef : null}
 							/>
 						</Link>
 					</li>

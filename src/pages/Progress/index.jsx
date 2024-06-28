@@ -128,7 +128,7 @@ export default function Progress() {
 		window.localStorage.removeItem("PEACH_TOEIC");
 	};
 
-	// Notification 
+	// Notification
 	const addNotification = useContext(NotificationContext);
 
 	return (
@@ -163,16 +163,12 @@ export default function Progress() {
 					</div>
 				</div>
 				<div className="font-medium text-18">
-					<p className="mb-4 font-semibold text-center text-primary ">
-						{name}
-					</p>
+					<p className="mb-4 font-semibold text-center text-primary ">{name}</p>
 
 					<div className="px-4">
 						<p className="flex justify-between">
 							Day start:
-							<span className="value">
-								{formatDate(dayStart)}
-							</span>
+							<span className="value">{formatDate(dayStart)}</span>
 						</p>
 						<p className="flex justify-between">
 							Day learned:
@@ -180,10 +176,7 @@ export default function Progress() {
 						</p>
 						<p className="flex justify-between">
 							Topic complete:
-							<span
-								className="value"
-								ref={tCompleteElement}
-							></span>
+							<span className="value" ref={tCompleteElement}></span>
 						</p>
 						<p className="flex justify-between">
 							<span>
@@ -210,13 +203,20 @@ export default function Progress() {
 								: () => {
 										confirmSound();
 										setConfirm(true);
-										addNotification('warn', "Are you sure you want to delete your progress?")
+										addNotification(
+											"warn",
+											"Are you sure you want to delete your progress?"
+										);
 								  }
 						}
 					>
 						{!confirm ? "Delete Data" : "Type again to confirm 💀"}
 					</Button>
 				</div>
+
+				<p className="mt-2 font-semibold text-center text-primary">
+					thanhcanhit x dinhkienk3
+				</p>
 			</main>
 		</section>
 	);
