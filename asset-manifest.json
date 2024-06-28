@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/peach-toeic/static/css/main.f3c3cc54.css",
+    "main.js": "/peach-toeic/static/js/main.332a195e.js",
+    "static/js/845.c4ab2b35.chunk.js": "/peach-toeic/static/js/845.c4ab2b35.chunk.js",
+    "static/js/787.038f8cec.chunk.js": "/peach-toeic/static/js/787.038f8cec.chunk.js",
+    "static/media/good_job.gif": "/peach-toeic/static/media/good_job.099467265592fb3f2576.gif",
+    "static/media/cat-down.png": "/peach-toeic/static/media/cat-down.f77d528a9de9c21f49bf.png",
+    "static/media/cat-up.png": "/peach-toeic/static/media/cat-up.4ee96381786471ce7939.png",
+    "static/media/cat.png": "/peach-toeic/static/media/cat.4ee96381786471ce7939.png",
+    "static/media/correct.mp3": "/peach-toeic/static/media/correct.90dc2b71de50d904b044.mp3",
+    "static/media/complete.mp3": "/peach-toeic/static/media/complete.bdf45a9181823ccc0b81.mp3",
+    "static/media/meow.mp3": "/peach-toeic/static/media/meow.98f1a9d646de18982468.mp3",
+    "static/media/tuntun.mp3": "/peach-toeic/static/media/tuntun.b7d92421653187a1ad89.mp3",
+    "static/media/notice.mp3": "/peach-toeic/static/media/notice.b9fe5a9482a163175fae.mp3",
+    "static/media/page-flip.mp3": "/peach-toeic/static/media/page-flip.604a33f94bc9dd35377a.mp3",
+    "static/media/wipe.mp3": "/peach-toeic/static/media/wipe.e51524a8345f6d0bb06c.mp3",
+    "static/media/bubble-pop.mp3": "/peach-toeic/static/media/bubble-pop.b216cda3690cc53b924a.mp3",
+    "index.html": "/peach-toeic/index.html",
+    "main.f3c3cc54.css.map": "/peach-toeic/static/css/main.f3c3cc54.css.map",
+    "main.332a195e.js.map": "/peach-toeic/static/js/main.332a195e.js.map",
+    "845.c4ab2b35.chunk.js.map": "/peach-toeic/static/js/845.c4ab2b35.chunk.js.map",
+    "787.038f8cec.chunk.js.map": "/peach-toeic/static/js/787.038f8cec.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f3c3cc54.css",
+    "static/js/main.332a195e.js"
+  ]
+}
