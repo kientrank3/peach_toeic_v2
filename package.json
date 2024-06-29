@@ -1,7 +1,6 @@
 {
 	"name": "peach-toeic",
-	"version": "0.1.0",
-	"private": true,
+	"version": "2.1.0",
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.16.5",
 		"@testing-library/react": "^13.4.0",
@@ -17,11 +16,12 @@
 		"vite": "^5.3.2",
 		"vite-tsconfig-paths": "^4.3.2",
 		"web-vitals": "^2.1.4",
+		"zmp-sdk": "^2.39.1",
 		"zmp-vite-plugin": "^1.1.1"
 	},
 	"scripts": {
 		"start": "vite",
-		"build": "tsc && vite build",
+		"build": "vite build",
 		"preview": "vite preview",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
@@ -42,8 +42,10 @@
 		"not dead"
 	],
 	"devDependencies": {
+		"@vitejs/plugin-react": "^1.0.0",
 		"autoprefixer": "^10.4.19",
 		"postcss": "^8.4.38",
-		"tailwindcss": "^3.4.4"
+		"tailwindcss": "^3.4.4",
+		"vite": "^2.0.0"
 	}
 }
