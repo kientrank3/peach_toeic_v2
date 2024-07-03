@@ -27,7 +27,7 @@ export function getPath(item, type = "img") {
 		default:
 			extension = "jpg";
 	}
-	return `/assets/${type}/${transformName(item?.topic)}/${transformName(
+	return `https://raw.githubusercontent.com/kientrank3/img_peach_toeic/main/${type}/${transformName(item?.topic)}/${transformName(
 		item.name
 	)}.${extension}`;
 }

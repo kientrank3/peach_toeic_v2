@@ -47,7 +47,7 @@ export default React.memo(
 						onError={({ currentTarget }) =>
 							(currentTarget.src = `/assets/error_img.jpg`)
 						}
-						src={`/assets/img/${transformName(topic.name)}/${transformName(
+						src={`https://raw.githubusercontent.com/kientrank3/img_peach_toeic/main/img/${transformName(topic.name)}/${transformName(
 							topic.name
 						)}.jpg`}
 						alt={topic.name}
