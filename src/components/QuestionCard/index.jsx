@@ -1,24 +1,19 @@
 import React, { useRef, useEffect, useState } from "react";
 import { getPath } from "../../assets/utilities/transform_text";
-import useTextToSpeech from "../../hooks/useTextToSpeech";
+import speak from "../../utils/textToSpeech";
 
 export default React.memo(function QuestionCard({ item }) {
 	// This ref to the audio tag
-	const [voice, setVoice] = useState(null);
-	const { voices, speak } = useTextToSpeech();
 	const [text, setText] = useState(item.name);
 
 	const sound = useRef();
 
-	// Handle play sounds. This will pause and load new sounds then play them
-	useEffect(() => {
-		setVoice(voices[18]);
-	}, [voices]);
 	useEffect(() => {
 		setText(item.name);
 	}, [item]);
+	
 	const playSound = () => {
-		speak({ text }, voice);
+		speak(text);
 	};
 
 	// This side effect will automatically play sounds when mounted after .3 seconds.

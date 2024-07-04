@@ -2,7 +2,6 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useSound } from "use-sound";
 import { twMerge } from "tailwind-merge";
 import { HiVolumeUp } from "react-icons/hi";
-import useTextToSpeech from "../../hooks/useTextToSpeech";
 
 // Components
 import Button from "../Button/";
@@ -16,16 +15,16 @@ import {
 
 // Sounds
 import changeSound from "../../assets/sfx/notice.mp3";
+import speak from "./../../utils/textToSpeech";
 
 function ContentCard({ item }) {
-	
 	// State change between example view and meaning view
 	const [isExample, setExample] = useState(false);
-	const [voice, setVoice] = useState (null);
-	const { voices, speak } = useTextToSpeech () ;
-	const [text, setText] = useState (item.name);
+	const [text, setText] = useState(item.name);
 
-	useLayoutEffect(() => {setExample(false)}, [item]);
+	useLayoutEffect(() => {
+		setExample(false);
+	}, [item]);
 
 	// This state for short screen device to responsive views
 	const [isShort, setShort] = useState(() => {
@@ -55,19 +54,13 @@ function ContentCard({ item }) {
 		clickSound();
 		setExample((isExample) => !isExample);
 	};
-	
-	useEffect(() => {
-		setVoice (voices[18]);
-		}, [voices]);
 
-	useEffect(()=>{
+	useEffect(() => {
 		setText(item.name);
-	},[item]);
+	}, [item]);
 	const playingSound = () => {
-		speak({text}, voice);
+		speak(text);
 	};
-	
-	
 
 	const exampleButton = useRef();
 	const playSoundButton = useRef();
@@ -112,10 +105,7 @@ function ContentCard({ item }) {
 			<header
 				className={
 					isShort
-						? twMerge(
-								imgBlockClassName,
-								" h-[100px] w-[150px] mx-auto "
-						  )
+						? twMerge(imgBlockClassName, " h-[100px] w-[150px] mx-auto ")
 						: imgBlockClassName
 				}
 			>
@@ -162,14 +152,13 @@ function ContentCard({ item }) {
 						</p>
 					</div>
 				</div>
-				<div className="flex items-center justify-between p-4 pt-0 mt-4" >
+				<div className="flex items-center justify-between p-4 pt-0 mt-4">
 					<Button ref={exampleButton} isPrimary onClick={changeState}>
 						{isExample ? "Meaning" : "Example"}
 					</Button>
 					<CircleButton ref={playSoundButton} onClick={playingSound}>
 						<HiVolumeUp />
 					</CircleButton>
-					
 				</div>
 			</main>
 		</article>
