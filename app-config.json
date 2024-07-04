@@ -2,9 +2,9 @@
   "app": {
     "title": "Peach Toeic",
     "headerTitle": "Peach Toeic",
-    "headerColor": "#1843EF",
+    "headerColor": "#7A9CC6",
     "textColor": "white",
-    "statusBarColor": "#1843EF",
+    "statusBarColor": "#7A9CC6",
     "leftButton": "back",
     "statusBar": "normal",
     "actionBarHidden": false,
