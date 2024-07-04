@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 const synth = window.speechSynthesis;
 const speak = (state, voice) => {
 	const utterance = new SpeechSynthesisUtterance();
