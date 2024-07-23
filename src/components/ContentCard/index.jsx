@@ -15,12 +15,14 @@ import {
 
 // Sounds
 import changeSound from "../../assets/sfx/notice.mp3";
-import speak from "./../../utils/textToSpeech";
+// import speak from "./../../utils/textToSpeech";
 
 function ContentCard({ item }) {
 	// State change between example view and meaning view
 	const [isExample, setExample] = useState(false);
 	const [text, setText] = useState(item.name);
+
+	
 
 	useLayoutEffect(() => {
 		setExample(false);
@@ -44,7 +46,7 @@ function ContentCard({ item }) {
 	}, []);
 
 	// This ref to audio tag
-	// const sound = useRef();
+	const sound = useRef();
 
 	// This sound will be played when click something
 	const [clickSound] = useSound(changeSound, { volume: 0.4 });
@@ -58,9 +60,15 @@ function ContentCard({ item }) {
 	useEffect(() => {
 		setText(item.name);
 	}, [item]);
-	const playingSound = () => {
-		speak(text);
-	};
+	
+	
+
+  	const playingSound =  () => {
+		sound.current.load();
+		sound.current.pause();
+		sound.current.play();
+  	};
+	
 
 	const exampleButton = useRef();
 	const playSoundButton = useRef();
@@ -159,6 +167,9 @@ function ContentCard({ item }) {
 					<CircleButton ref={playSoundButton} onClick={playingSound}>
 						<HiVolumeUp />
 					</CircleButton>
+					<audio ref={sound}>
+						<source src={getPath(item, "sounds")} />
+					</audio>						
 				</div>
 			</main>
 		</article>

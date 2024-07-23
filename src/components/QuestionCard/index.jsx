@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { getPath } from "../../assets/utilities/transform_text";
-import speak from "../../utils/textToSpeech";
+// import speak from "../../utils/textToSpeech";
 
 export default React.memo(function QuestionCard({ item }) {
 	// This ref to the audio tag
@@ -13,7 +13,9 @@ export default React.memo(function QuestionCard({ item }) {
 	}, [item]);
 	
 	const playSound = () => {
-		speak(text);
+		sound.current.load();
+		sound.current.pause();
+		sound.current.play();
 	};
 
 	// This side effect will automatically play sounds when mounted after .3 seconds.

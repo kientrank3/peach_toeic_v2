@@ -1,8 +1,17 @@
+
 function speak(message) {
-	var msg = new SpeechSynthesisUtterance(message);
-	var voices = window.speechSynthesis.getVoices();
-	msg.voice = voices[0];
-	window.speechSynthesis.speak(msg);
+	if('speechSynthesis' in window) {
+		var msg = new SpeechSynthesisUtterance();
+		msg.text = message;
+		msg.lang = 'en-US';
+		msg.rate = 0.8;
+		msg.pitch = 1;
+		speechSynthesis.speak(msg);
+	} else {
+		console.log('Speech synthesis not supported.');
+	}
+	
+	
 }
 
 export default speak;

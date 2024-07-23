@@ -30,4 +30,5 @@ export function getPath(item, type = "img") {
 	return `https://raw.githubusercontent.com/kientrank3/img_peach_toeic/main/${type}/${transformName(item?.topic)}/${transformName(
 		item.name
 	)}.${extension}`;
+	
 }
